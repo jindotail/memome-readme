@@ -16,6 +16,21 @@ module.exports = {
         use: "ts-loader",
         exclude: /node_modules/,
       },
+      {
+        test: /\.png$/i,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[path][name].[ext]",
+              context: path.resolve(__dirname, "src/assets"),
+              publicPath: "/static",
+              outputPath: "static",
+            },
+          },
+        ],
+        exclude: /node_modules/,
+      },
     ],
   },
   resolve: {
