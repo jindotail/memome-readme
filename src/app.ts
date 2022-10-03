@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 import path from "node:path";
 import svg from "./assets/svg/layout.svg";
+import layout from "./view/layout";
 
 async function startServer() {
   const app = express();
@@ -9,8 +10,18 @@ async function startServer() {
     res.status(200).end();
   });
 
-  app.get("/memome", (req: Request, res: Response) => {
-    res.sendFile(path.resolve(__dirname + svg));
+  app.get("/layout", (req: Request, res: Response) => {
+    res.writeHead(200, {
+      "Content-Type": "image/svg+xml",
+    });
+
+    res.end(
+      layout({
+        id: "jindo",
+        nickname: "진도",
+        comment: ["꼬리 다녀감1", "꼬리 다녀감2"],
+      })
+    );
   });
 
   app.listen(9000, () => {
