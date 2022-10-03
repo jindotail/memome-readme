@@ -1,16 +1,16 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import path from "node:path";
-import img from "./assets/images/memome.png";
+import svg from "./assets/svg/layout.svg";
 
 async function startServer() {
   const app = express();
 
-  app.get("/status", (req, res) => {
+  app.get("/status", (req: Request, res: Response) => {
     res.status(200).end();
   });
 
-  app.get("/memome", (req, res) => {
-    res.sendFile(path.resolve(__dirname + img));
+  app.get("/memome", (req: Request, res: Response) => {
+    res.sendFile(path.resolve(__dirname + svg));
   });
 
   app.listen(9000, () => {
