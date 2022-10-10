@@ -6,6 +6,7 @@ const template = (
 <rect x="50" y="20" rx="20" ry="20" width="490" height="150" style="fill:red;stroke: black;stroke-width:5;opacity:0.5" />
 <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">${id} ${nickname} ${comment[0]} ${comment[1]} 방명록 작성하러 가기</text> 
 </svg>`;
+// TODO - 댓글이 하나인 경우 처리
 
 interface Props {
   id: string;

@@ -4,6 +4,7 @@ const NodemonPlugin = require("nodemon-webpack-plugin");
 
 const { NODE_ENV } = process.env;
 
+// TODO - file-loader 안 쓰는 것 같으면 삭제해야 한다
 module.exports = {
   entry: "./src/app.ts",
   mode: NODE_ENV,
