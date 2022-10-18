@@ -4,10 +4,12 @@ const template = (
   comment: string[]
 ) => `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="350" height="200" >
 
+        <!-- CSS -->
         <defs>
+          <!-- 폰트 적용 -->
           <style type="text/css">
-          @import url('https://fonts.googleapis.com/css2?family=Galada&amp;family=Gowun+Batang:wght@700&amp;family=Poor+Story&amp;family=Yeon+Sung&amp;display=swap');
-          @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&amp;family=Galada&amp;family=Nanum+Gothic&amp;display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Galada&amp;family=Gowun+Batang:wght@700&amp;family=Poor+Story&amp;family=Yeon+Sung&amp;display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&amp;family=Galada&amp;family=Nanum+Gothic&amp;display=swap');
             @font-face {
               font-family: 'Cafe24Ssurround';
               src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
@@ -21,10 +23,9 @@ const template = (
               font-style: normal;
             };
           </style>
-        
-          
         </defs>
 
+        <!-- 메인 박스 그라데이션 적용-->
         <defs>
           <linearGradient id="myGradient" gradientTransform="rotate(30)">
             <stop offset="20%" stop-color="#dfe8ff" />
@@ -33,23 +34,23 @@ const template = (
           </linearGradient>
         </defs>
 
-        <!-- using my linear gradient -->
-        <rect width="350" height="200" rx="10" ry="10" x="0" y="0" fill="url('#myGradient')"/> //안에 꽉찬거
+        <!-- 메인 박스 -->
+        <rect width="350" height="200" rx="10" ry="10" x="0" y="0" fill="url('#myGradient')"/>
         
         <!-- 타이틀 -->
         <text x="25" y="38" font-family='Cafe24Ssurround' font-size="18" fill="#453a3a">${nickname}의 방명록</text>
         
         <!-- 첫번째 댓글 -->
         <rect width="310" height="30" rx="10" ry="10" x="20" y="60" fill="#ffffff"/>
-        <text x="50%" y ="40%" text-anchor="middle" font-family="Gowun Batang, serif">${comment ? comment[0] : "test"}</text>
+        <text x="50%" y ="40%" text-anchor="middle" font-family="Gowun Batang, serif">${comment ? comment[0] : "---"}</text>
         
         <!-- 두번째 댓글 -->
         <rect width="310" height="30" rx="10" ry="10" x="20" y="100" fill="#ffffff"/>
-        <text x="50%" y ="60%" text-anchor="middle" font-family="Gowun Batang, serif">${comment === undefined ? (comment[1]) : "안녕하세요"}</text>
+        <text x="50%" y ="60%" text-anchor="middle" font-family="Gowun Batang, serif">${comment? (comment[1]) : "---"}</text>
         
         <!-- footer -->
         <text x="25" y="180" font-family="Galada, cursive" fill="#453a3a"  font-size="18">MEMOME</text>
-        <a href="https://memome.be/${id}">
+        <a href="https://memome.be/${id}" class="button">
           <text x="235" y="178" font-family='Cafe24Ssurround' font-size="13" fill="#453a3a">방명록으로 가기</text>
         </a>
       </svg>`
@@ -64,7 +65,5 @@ interface Props {
 const layout = ({ id, nickname, comment }: Props): string => {
   return template(id, nickname, comment);
 };
-
-//<text dominant-baseline="middle" text-anchor="middle" x="100" y="100">${id} ${nickname} ${comment[0]} ${comment[1]} 방명록 작성하러 가기</text> 
 
 export default layout;
