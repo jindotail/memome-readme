@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { requestGet } from "../utils/axios";
 import layout from "../view/layout";
+import config from "../config";
 
 interface UserModel {
   id: string;
@@ -12,14 +13,13 @@ interface CommentModel {
 }
 
 const handler = async (req: Request, res: Response) => {
-  // TODO - http://localhost:8080 환경변수로 변경
   // TODO - 다른 닉네임 적용
   const user: UserModel = await requestGet(
-    "http://localhost:8080",
+    config.backendUri,
     "/api/user/jindo"
   );
   const recentComment: CommentModel = await requestGet(
-    "http://localhost:8080",
+    config.backendUri,
     "/api/comment/jindo"
   );
 

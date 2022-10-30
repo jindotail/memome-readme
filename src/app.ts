@@ -1,17 +1,17 @@
-import express, { Request, Response } from "express";
-import { requestGet } from "./utils/axios";
-import layout from "./view/layout";
+import express from "express";
 import routes from "./routes";
+import config from "./config";
 
 async function startServer() {
   const app = express();
 
   app.use("/", routes);
 
-  app.listen(9000, () => {
+  app.listen(config.port, () => {
     console.log(`
       ################################################
-      🛡️  Server listening on port: ${9000} 🛡️
+      🛡️  backend server uri: ${config.backendUri} 🛡️
+      🛡️  Server listening on port: ${config.port} 🛡️
       ################################################
     `);
   });
