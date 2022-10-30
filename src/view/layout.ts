@@ -2,7 +2,7 @@ const template = (
   id: string,
   nickname: string,
   comment: string[]
-) => `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="350" height="200" >
+) => `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="350" height="210" >
 
         <!-- CSS -->
         <defs>
@@ -35,23 +35,27 @@ const template = (
         </defs>
 
         <!-- 메인 박스 -->
-        <rect width="350" height="200" rx="10" ry="10" x="0" y="0" fill="url('#myGradient')"/>
+        <rect width="350" height="210" rx="10" ry="10" x="0" y="0" fill="url('#myGradient')"/>
         
         <!-- 타이틀 -->
         <text x="25" y="38" font-family='Cafe24Ssurround' font-size="18" fill="#453a3a">${nickname}의 방명록</text>
         
+        <!-- 타이틀 -->
+        <text x="25" y="30%" font-family='Cafe24Ssurround' font-size="11" fill="#453a3a">Recent Comments</text>
+        
+        
         <!-- 첫번째 댓글 -->
-        <rect width="310" height="30" rx="10" ry="10" x="20" y="60" fill="#ffffff"/>
-        <text x="50%" y ="40%" text-anchor="middle" font-family="Gowun Batang, serif">${comment ? comment[0] : "---"}</text>
+        <rect width="310" height="30" rx="10" ry="10" x="20" y="80" fill="#ffffff"/>
+        <text x="50%" y ="48%" text-anchor="middle" font-family="Gowun Batang, serif">${comment ? comment[0] : "---"}</text>
         
         <!-- 두번째 댓글 -->
-        <rect width="310" height="30" rx="10" ry="10" x="20" y="100" fill="#ffffff"/>
-        <text x="50%" y ="60%" text-anchor="middle" font-family="Gowun Batang, serif">${comment? (comment[1]) : "---"}</text>
+        <rect width="310" height="30" rx="10" ry="10" x="20" y="120" fill="#ffffff"/>
+        <text x="50%" y ="67%" text-anchor="middle" font-family="Gowun Batang, serif">${comment? (comment[1]) : "---"}</text>
         
         <!-- footer -->
-        <text x="25" y="180" font-family="Galada, cursive" fill="#453a3a"  font-size="18">MEMOME</text>
+        <text x="25" y="190" font-family="Galada, cursive" fill="#453a3a"  font-size="18">MEMOME</text>
         <a href="https://memome.be/${id}" class="button">
-          <text x="235" y="178" font-family='Cafe24Ssurround' font-size="13" fill="#453a3a">방명록으로 가기</text>
+          <text x="235" y="188" font-family='Cafe24Ssurround' font-size="13" fill="#453a3a">방명록으로 가기</text>
         </a>
       </svg>`
 // TODO - 댓글이 하나인 경우 처리
