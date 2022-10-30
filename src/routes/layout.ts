@@ -13,6 +13,7 @@ interface CommentModel {
 
 const handler = async (req: Request, res: Response) => {
   // TODO - http://localhost:8080 환경변수로 변경
+  // TODO - 다른 닉네임 적용
   const user: UserModel = await requestGet(
     "http://localhost:8080",
     "/api/user/jindo"
