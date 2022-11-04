@@ -45,18 +45,18 @@ const template = (
         
         
         <!-- 첫번째 댓글 -->
-        <rect width="310" height="30" rx="10" ry="10" x="20" y="80" fill="#ffffff"/>
-        <text x="50%" y ="48%" text-anchor="middle" font-family="Gowun Batang, serif">${comment ? comment[0] : "---"}</text>
-        <!--
-        <path d="M320,80 a20,20 0 0 1 20,20 v30 a20,20 0 0 1 -20,20 h-300  v-50 a20,20 0 0 1 20,-20 z" z-index="99"/>
-        -->
+        <!-- <rect width="310" height="30" rx="10" ry="10" x="20" y="80" fill="#ffffff"/> -->
+        <path d="M325,80 a8,8 0 0 1 8,8 v20 a8,8 0 0 1 -8,8 h-310  v-28 a8,8 0 0 1 8,-8 z" fill="#ffffff"/>
+        <text x="50%" y ="50%" text-anchor="middle" font-family="Gowun Batang, serif">${comment ? comment[0] : "---"}</text>
+    
+      
         <!-- 두번째 댓글 -->
-        <rect width="310" height="30" rx="10" ry="10" x="20" y="120" fill="#ffffff"/>
-        <text x="50%" y ="67%" text-anchor="middle" font-family="Gowun Batang, serif">${comment? (comment[1]) : "---"}</text>
+        <path d="M325,125 a8,8 0 0 1 8,8 v20 a8,8 0 0 1 -8,8 h-310  v-28 a8,8 0 0 1 8,-8 z" fill="#ffffff"/>
+        <text x="50%" y ="71%" text-anchor="middle" font-family="Gowun Batang, serif">${comment? (comment[1]) : "---"}</text>
         
 
         <!-- footer -->
-        <text x="25" y="190" font-family="Galada, cursive" fill="#453a3a"  font-size="18">MEMOME</text>
+        <text x="255" y="190" font-family="Galada, cursive" fill="#453a3a"  font-size="18">MEMOME</text>
         
         <!-- <a href="https://memome.be/${id}" class="button">
           <text x="235" y="188" font-family='Cafe24Ssurround' font-size="13" fill="#453a3a">댓글 쓰러 가기</text>
