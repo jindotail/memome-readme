@@ -10,16 +10,10 @@ const template = (
           <style type="text/css">
             <![CDATA[
               @import url('https://fonts.googleapis.com/css2?family=Galada&amp;family=Gowun+Batang:wght@700&amp;family=Poor+Story&amp;family=Yeon+Sung&amp;display=swap');
-              @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&amp;family=Galada&amp;family=Nanum+Gothic&amp;display=swap');
+              @import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700');
               @font-face {
                 font-family: 'Cafe24Ssurround';
                 src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
-                font-weight: normal;
-                font-style: normal;
-              };
-              @font-face {
-                font-family: 'GangwonEdu_OTFBoldA';
-                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
                 font-weight: normal;
                 font-style: normal;
               };
