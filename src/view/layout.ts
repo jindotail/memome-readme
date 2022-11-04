@@ -2,24 +2,10 @@ const template = (
   id: string,
   nickname: string,
   comment: string[]
-) => `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="350" height="210" >
+) => `
+      <?xml-stylesheet type="text/css" href="data:text/css;base64,QGltcG9ydCB1cmwoJ2h0dHBzOi8vZm9udHMuZ29vZ2xlYXBpcy5jb20vY3NzMj9mYW1pbHk9R2FsYWRhJmFtcDtmYW1pbHk9R293dW4rQmF0YW5nOndnaHRANzAwJmFtcDtmYW1pbHk9UG9vcitTdG9yeSZhbXA7ZmFtaWx5PVllb24rU3VuZyZhbXA7ZGlzcGxheT1zd2FwJyk7DQpAaW1wb3J0IHVybCgnaHR0cHM6Ly9mb250cy5nb29nbGVhcGlzLmNvbS9jc3MyP2ZhbWlseT1Hb3d1bitCYXRhbmc6d2dodEA3MDAnKTsNCkBmb250LWZhY2Ugew0KICBmb250LWZhbWlseTogJ0NhZmUyNFNzdXJyb3VuZCc7DQogIHNyYzogdXJsKCdodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvZ2gvcHJvamVjdG5vb25udS9ub29uZm9udHNfMjEwNV8yQDEuMC9DYWZlMjRTc3Vycm91bmQud29mZicpIGZvcm1hdCgnd29mZicpOw0KICBmb250LXdlaWdodDogbm9ybWFsOw0KICBmb250LXN0eWxlOiBub3JtYWw7DQp9" ?>
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="350" height="210" >
 
-        <!-- CSS -->
-        <defs>
-          <!-- 폰트 적용 -->
-          <style type="text/css">
-            <![CDATA[
-              @import url('https://fonts.googleapis.com/css2?family=Galada&amp;family=Gowun+Batang:wght@700&amp;family=Poor+Story&amp;family=Yeon+Sung&amp;display=swap');
-              @import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700');
-              @font-face {
-                font-family: 'Cafe24Ssurround';
-                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
-                font-weight: normal;
-                font-style: normal;
-              };
-            ]]>
-          </style>
-        </defs>
 
         <!-- 메인 박스 그라데이션 적용-->
         <defs>
