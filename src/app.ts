@@ -1,11 +1,13 @@
 import express from "express";
-import routes from "./routes";
 import config from "./config";
+import withError from "./middlewares/withError";
+import routes from "./routes";
 
 async function startServer() {
   const app = express();
 
   app.use("/", routes);
+  app.use("/", withError);
 
   app.listen(config.port, () => {
     console.log(`
