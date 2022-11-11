@@ -1,7 +1,8 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
+import { HttpStatusCode } from "../common/http";
+import config from "../config";
 import { requestGet } from "../utils/axios";
 import layout from "../view/layout";
-import config from "../config";
 
 interface UserModel {
   id: string;
@@ -12,28 +13,38 @@ interface CommentModel {
   body: { idx: string; comment: string; iso_time: string }[];
 }
 
-const handler = async (req: Request, res: Response) => {
-  // TODO - 다른 닉네임 적용
-  const user: UserModel = await requestGet(
-    config.backendUri,
-    "/api/user/jindo"
-  );
-  const recentComment: CommentModel = await requestGet(
-    config.backendUri,
-    "/api/comment/jindo"
-  );
+const sliceComment = (commentModel: CommentModel, count: number) => {
+  return commentModel.body.map((_) => _.comment).slice(0, count);
+};
 
-  res.writeHead(200, {
-    "Content-Type": "image/svg+xml",
-  });
+const handler = async (req: Request, res: Response, next: NextFunction) => {
+  const userId = req.params.userId;
+  console.log(`요청이 들어왔습니다 id: ${userId}`);
 
-  res.end(
-    layout({
-      id: user.id,
-      nickname: user.nickname,
-      comment: recentComment.body.map((_) => _.comment).slice(0, 2),
-    })
-  );
+  try {
+    const user: UserModel = await requestGet(
+      config.backendUri,
+      `/api/user/${userId}`
+    );
+    const comment: CommentModel = await requestGet(
+      config.backendUri,
+      `/api/comment/${userId}`
+    );
+
+    res
+      .writeHead(HttpStatusCode.OK, {
+        "Content-Type": "image/svg+xml",
+      })
+      .end(
+        layout({
+          id: user.id,
+          nickname: user.nickname,
+          comment: sliceComment(comment, 2),
+        })
+      );
+  } catch (err) {
+    return next(err);
+  }
 };
 
 export default [handler];
