@@ -13,6 +13,8 @@ interface CommentModel {
   body: { idx: string; comment: string; iso_time: string }[];
 }
 
+const COMMENT_COUNT = 2;
+
 const sliceComment = (commentModel: CommentModel, count: number) => {
   return commentModel.body.map((_) => _.comment).slice(0, count);
 };
@@ -28,7 +30,7 @@ const handler = async (req: Request, res: Response, next: NextFunction) => {
     );
     const comment: CommentModel = await requestGet(
       config.backendUri,
-      `/api/comment/${userId}`
+      `/api/comment/${userId}?size=${COMMENT_COUNT}`
     );
 
     res
