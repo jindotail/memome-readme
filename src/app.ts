@@ -1,4 +1,5 @@
 import express from "express";
+import nocache from "nocache";
 import config from "./config";
 import withError from "./middlewares/withError";
 import routes from "./routes";
@@ -6,6 +7,7 @@ import routes from "./routes";
 async function startServer() {
   const app = express();
 
+  app.use(nocache());
   app.use("/", routes);
   app.use("/", withError);
 

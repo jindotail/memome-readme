@@ -36,9 +36,6 @@ const handler = async (req: Request, res: Response, next: NextFunction) => {
     res
       .writeHead(HttpStatusCode.OK, {
         "Content-Type": "image/svg+xml",
-        "Cache-Control": "no-cache, no-store, must-revalidate",
-        Pragma: "no-cache",
-        Expires: "0",
       })
       .end(
         layout({
